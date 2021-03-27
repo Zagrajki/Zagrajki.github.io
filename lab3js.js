@@ -6,6 +6,6 @@ const fun1 = () => {
 		return
 	}
 	const newP = document.createElement("p");
-	newP,innerHTML = value;
+	newP,innerHTML = '${value}';
 	$("#ToDoList").append(newP);
 }
