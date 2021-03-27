@@ -7,18 +7,9 @@
 	<label for="polecenie">Polecenie:</label>
 	<input id="polecenie">
 	<br>
+	<button id="OK" onclick="fun1()">OK</button>
 	
 	<div id="ToDoList">
 	<h2>Lista ToDo:</h2>
 	</div>
-	
-	<script>
-var input = document.getElementById("ToDoList");
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-   event.preventDefault();
-   fun1();
-  }
-});
-</script>
 </body>
