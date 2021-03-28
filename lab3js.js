@@ -6,7 +6,7 @@
 			return
 		}
         let ele = document.getElementById('ToDoList');
-        ele.innerHTML += value;
+        ele.innerHTML += value+'\n';
     }
 
 const fun1 = () => {
