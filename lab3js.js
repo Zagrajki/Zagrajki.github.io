@@ -6,7 +6,9 @@
 			return
 		}
         let ele = document.getElementById('ToDoList');
-        ele.innerHTML += value+'\n';
+        //ele.innerHTML += value+'\n';
+		let node = document.createTextNode (value);
+        ele.appendChild(node);
     }
 
 const fun1 = () => {
