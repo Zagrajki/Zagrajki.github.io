@@ -15,7 +15,7 @@ let fillData = () => {
 		this.style.setProperty("text-decoration", "none");
     } else {
 		var today = new Date();
-		newT.innerHTML = ' '+today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+		newT.innerHTML = ' '+today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
 		this.appendChild(newT);
 		this.style.color = 'gray';
 		this.style.setProperty("text-decoration", "line-through");
