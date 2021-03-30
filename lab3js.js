@@ -1,12 +1,12 @@
 "use strict"
 
-var newT = document.createElement('t');
 let fillData = () => {
 	let value = document.getElementById("polecenie").value;
 	if(value === ""){
 		return
 	}
     var newP = document.createElement('p');
+	var newT = document.createElement('t');
 	newP.innerHTML = value;
 	newP.onclick = function () {
 	if(this.style.color === 'gray'){
