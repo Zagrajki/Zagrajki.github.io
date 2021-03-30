@@ -1,16 +1,5 @@
 "use strict"
 
-    let fillData = () => {
-		let value = document.getElementById("polecenie").value;
-		if(value === ""){
-			return
-		}
-        let ele = document.getElementById('ToDoList');
-        //ele.innerHTML += value+'\n';
-		let node = document.createTextNode (value);
-        ele.appendChild(node);
-    }
-
 const fun1 = () => {
 	let value = document.getElementById("polecenie").value;
 	if(value === ""){
@@ -36,7 +25,7 @@ let fillData = () => {
 		this.style.color = 'black';
 		this.style.setProperty("text-decoration", "none");
     } else {
-		//var newT = document.createElement('t');
+		var newT = document.createElement('t');
 		var today = new Date();
 		newT.innerHTML = ' '+today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 		this.appendChild(newT);
