@@ -1,6 +1,6 @@
 "use strict"
 
-var trash;
+var trash=null;
 var tempP;
 var tempB;
 let fillData = () => {
