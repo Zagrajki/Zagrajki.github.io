@@ -1,5 +1,8 @@
+"use strict"
+
 var trash;
 var tempP;
+tempP.id = 'gg';
 var tempB;
 let fillData = () => {
 	let value = document.getElementById("polecenie").value;
@@ -58,7 +61,7 @@ $("#nie").on("click", function() {
 
 $("#tak").on("click", function() {
 	trash=tempP;
-    $(tempP).remove();
+    $('#gg').remove();
     $(tempB).remove();
     $(".popup-overlay, .popup-content").removeClass("active");
 });
