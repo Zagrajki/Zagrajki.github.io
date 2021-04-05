@@ -54,11 +54,11 @@ $(".open").on("click", function() {
 	$(".popup-overlay, .popup-content").addClass("active");
 });
 
-$("#nie").on("click", function() {
+$(".nienie").on("click", function() {
 	$(".popup-overlay, .popup-content").removeClass("active");
 });
 
-$("#tak").on("click", function() {
+$(".taktak").on("click", function() {
     $(tempP).detach();
     $(tempB).detach();
 	trash=tempP;
