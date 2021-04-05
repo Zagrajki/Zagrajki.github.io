@@ -1,5 +1,6 @@
 "use strict"
 
+<script>
 var trash;
 var tempP;
 var tempB;
@@ -28,7 +29,7 @@ let fillData = () => {
 	};
 	var table = document.getElementById('ToDoList');
     var btn = $("<button>X</button>").addClass("btn btn-danger").click(function () {
-    	$(".modal-overlay, .modal-content").addClass("shown");
+    	$(".popup-overlay, .popup-content").addClass("active");
         tempP=newP;
         tempB=this;
     });
@@ -40,7 +41,7 @@ let koszyk = () => {
     var newP = trash;
 	var table = $('#ToDoList');
     var btn = $("<button>X</button>").addClass("btn btn-danger").click(function () {
-    	$(".modal-overlay, .modal-content").addClass("shown");
+    	$(".popup-overlay, .popup-content").addClass("active");
         tempP=newP;
         tempB=this;
     });
@@ -50,13 +51,17 @@ let koszyk = () => {
     }
 }
 
+$(".open").on("click", function() {
+	$(".popup-overlay, .popup-content").addClass("active");
+});
+
 $("#nie").on("click", function() {
-	$(".modal-overlay, .modal-content").removeClass("shown");
+	$(".popup-overlay, .popup-content").removeClass("active");
 });
 
 $("#tak").on("click", function() {
 	trash=tempP;
     $(tempP).remove();
     $(tempB).remove();
-    $(".modal-overlay, .modal-content").removeClass("shown");
+    $(".popup-overlay, .popup-content").removeClass("active");
 });
