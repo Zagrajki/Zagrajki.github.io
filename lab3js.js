@@ -58,7 +58,7 @@ $(".nienie").on("click", function() {
 	$(".popup-overlay, .popup-content").removeClass("active");
 });
 
-$(".taktak").on("click", function() {
+$(".taktak").click(function() {
     $(tempP).detach();
     $(tempB).detach();
 	trash=tempP;
