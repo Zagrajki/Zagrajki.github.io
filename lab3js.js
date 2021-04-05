@@ -1,12 +1,17 @@
 "use strict"
 
+var trash;
+var tempP;
+var tempB;
 let fillData = () => {
 	let value = document.getElementById("polecenie").value;
 	if(value === ""){
 		return
 	}
     var newP = document.createElement('p');
-	var newT = document.createElement('t');
+    newP.className="p-3 mb-2 bg-warning";
+    newP.style.fontFamily = "cursive";
+    var newT = document.createElement('i');
 	newP.innerHTML = value;
 	newP.onclick = function () {
 	if(this.style.color === 'gray'){
@@ -22,5 +27,36 @@ let fillData = () => {
     }
 	};
 	var table = document.getElementById('ToDoList');
+    var btn = $("<button>X</button>").addClass("btn btn-danger").click(function () {
+    	$(".modal-overlay, .modal-content").addClass("shown");
+        tempP=newP;
+        tempB=this;
+    });
+    $("#ToDoList").append(btn);
 	table.appendChild(newP);
 }
+let koszyk = () => {
+	if(trash !== null){
+    var newP = trash;
+	var table = $('#ToDoList');
+    var btn = $("<button>X</button>").addClass("btn btn-danger").click(function () {
+    	$(".modal-overlay, .modal-content").addClass("shown");
+        tempP=newP;
+        tempB=this;
+    });
+    $("#ToDoList").append(btn);
+	$("#ToDoList").append(newP);
+    trash=null;
+    }
+}
+
+$("#nie").on("click", function() {
+	$(".modal-overlay, .modal-content").removeClass("shown");
+});
+
+$("#tak").on("click", function() {
+	trash=tempP;
+    $(tempP).remove();
+    $(tempB).remove();
+    $(".modal-overlay, .modal-content").removeClass("shown");
+});
