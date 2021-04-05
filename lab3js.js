@@ -1,6 +1,5 @@
 "use strict"
 
-<script>
 var trash;
 var tempP;
 var tempB;
