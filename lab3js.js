@@ -1,5 +1,3 @@
-"use strict"
-
 var trash;
 var tempP;
 var tempB;
