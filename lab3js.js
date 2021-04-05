@@ -54,13 +54,13 @@ $(".open").on("click", function() {
 	$(".popup-overlay, .popup-content").addClass("active");
 });
 
-$(".nienie").on("click", function() {
+let nie = () => {
 	$(".popup-overlay, .popup-content").removeClass("active");
-});
+}
 
-$(".taktak").click(function() {
+let tak = () => {
     $(tempP).remove();
     $(tempB).remove();
 	trash=tempP;
     $(".popup-overlay, .popup-content").removeClass("active");
-});
+}
