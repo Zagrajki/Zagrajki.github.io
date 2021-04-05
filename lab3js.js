@@ -59,8 +59,8 @@ $("#nie").on("click", function() {
 });
 
 $("#tak").on("click", function() {
-    $(tempP).remove();
-    $(tempB).remove();
+    $(tempP).detach();
+    $(tempB).detach();
 	trash=tempP;
     $(".popup-overlay, .popup-content").removeClass("active");
 });
