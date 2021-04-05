@@ -28,7 +28,7 @@ let fillData = () => {
 	};
 	var table = document.getElementById('ToDoList');
     var btn = $("<button>X</button>").addClass("btn btn-danger").click(function () {
-    	$(".popup-overlay, .popup-content").addClass("active");
+    	$(".modal-overlay, .modal-content").addClass("active");
         tempP=newP;
         tempB=this;
     });
@@ -40,7 +40,7 @@ let koszyk = () => {
     var newP = trash;
 	var table = $('#ToDoList');
     var btn = $("<button>X</button>").addClass("btn btn-danger").click(function () {
-    	$(".popup-overlay, .popup-content").addClass("active");
+    	$(".modal-overlay, .modal-content").addClass("active");
         tempP=newP;
         tempB=this;
     });
@@ -51,12 +51,12 @@ let koszyk = () => {
 }
 
 let nie = () => {
-	$(".popup-overlay, .popup-content").removeClass("active");
+	$(".modal-overlay, .modal-content").removeClass("active");
 }
 
 let tak = () => {
     $(tempP).remove();
     $(tempB).remove();
 	trash=tempP;
-    $(".popup-overlay, .popup-content").removeClass("active");
+    $(".modal-overlay, .modal-content").removeClass("active");
 }
