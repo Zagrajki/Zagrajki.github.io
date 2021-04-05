@@ -50,10 +50,6 @@ let koszyk = () => {
     }
 }
 
-$(".open").on("click", function() {
-	$(".popup-overlay, .popup-content").addClass("active");
-});
-
 let nie = () => {
 	$(".popup-overlay, .popup-content").removeClass("active");
 }
