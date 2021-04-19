@@ -6,6 +6,7 @@ var found = 0;
 var count = 0;
 const Hello = () => (<h2>Liczba znalezionych: {found}</h2>)
 const Bye = (props) => (<>
+<img src="https://www.zani.co.uk/images/April2012/steven%20seagal%20david%20weeks%20zani%201.jpg" alt="Miał tu być obrazek, ale widocznie uciekł.">
 					<h1 style={{position: "static", top: "0px"}}>{props.imie}</h1>
                     <p style={{position: "static", top: "0px"}}>{props.opis}</p>
                    	<p style={{position: "relative", top: "40px", left: "200px"}}><a href={"mailto:"+props.email} target="_blank">{props.email}</a></p>
