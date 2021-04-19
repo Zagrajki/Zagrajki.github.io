@@ -64,20 +64,19 @@ class ToDo extends React.Component {
     // it => ( )
     render() {
         const myList = this.state.toDoList.map(it => (
-            <Item text={it} key={it} />
+            <Item text={it} key={hashCode(it)} />
         ))
 
         return (
             //React.Fragment
             <>
                 <h2>{this.props.dummyText}</h2>
-                <input
-                    type="text"
-					name="nazwa"
-					value={this.state.newItemValue}
-					onChange={this.handleInputChange}
-					onKeyDown={this.handleKey}
+                <Box
+                    newItemValue={this.state.newItemValue}
+                    handleOnChange={this.handleNewEntry}
+                    handleOnKey={this.handleEnter}
                 />
+
                {this.state.showWarning && <h1 style={{color: "red"}}>{this.errorMessage}</h1> }
                 <ul>
                     {myList}
