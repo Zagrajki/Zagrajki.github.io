@@ -1,20 +1,16 @@
+"use strict"
 const Item = (props) => (
-    <li>{props.text}</li>
+    <div>{props.text}</div>
 )
 var found = 0;
 var count = 0;
 const Hello = () => (<h2>Liczba znalezionych: {found}</h2>)
-const Bye = (props) => (<li>
-					<h2 style={{position: "absolute", top: "0px"}}>{props.imie}</h2>
-                    <h2 style={{position: "absolute", top: "30px"}}>{props.opis}</h2>
-                   	<h2 style={{position: "absolute", top: "90px", left: "200px"}}>{props.email}</h2>
-                    <h2 style={{position: "absolute", top: "90px"}}>{props.tagi}</h2>
-					</li>)
-const Ruler = () => {
-	for (var i = 0; i < count; i++) {
-        ObjectRow()
-    } 
-}
+const Bye = (props) => (<>
+					<h1 style={{position: "static", top: "0px"}}>{props.imie}</h1>
+                    <p style={{position: "static", top: "0px"}}>{props.opis}</p>
+                   	<p style={{position: "relative", top: "40px", left: "200px"}}><a href={props.email} target="_blank">{props.email}</a></p>
+                    <p style={{position: "static", top: "0px"}}>{props.tagi}</p>
+					</>)
 
 function Glossary(props) {
   return (
@@ -24,11 +20,73 @@ function Glossary(props) {
         <React.Fragment key={item.id}>
           <dt>"zycie"</dt>
           <dd>"jest nowela"</dd>
-          <dd>{item}</dd>
+          <dd>{item.imie}</dd>
         </React.Fragment>
       ))}
     </dl>
   );
+}
+
+class DlaRoot1 extends React.Component {
+    state = {
+        newItemValue: "",
+        showWarning: false
+    }
+    errorMessage = "Wrong entry value"
+
+    handleOnChange = (event) => {
+        this.setState({
+            newItemValue: event.target.value
+        })
+    }
+
+    handleEnter = (event) => {
+        if(event.code === "Enter"){
+            if(this.state.toDoList.includes(this.state.newItemValue)){
+                this.setState({
+                    showWarning: true
+                })
+            } else {
+                this.setState({
+                    toDoList: this.state.toDoList.concat(this.state.newItemValue),
+                    showWarning: false
+
+                })
+            }
+        } else {
+            this.setState({
+                showWarning: false
+            })
+        }
+    }
+    // it => ( )
+    render() {
+
+        return (
+            //React.Fragment
+            <>
+                <h2>{this.props.dummyText}</h2>
+                <p>
+        <input
+            type="text"
+            name="newItemValue"
+            placeholder="Wyszukiwanie po tagach"
+            value={this.newItemValue}
+            onChange={this.handleOnChange}
+            onKeyDown={this.handleEnter}
+        />
+        </p>
+        <input
+            type="text"
+            name="newItemValue"
+            placeholder="Wyszukiwanie w opisach"
+            value={this.newItemValue}
+            onChange={this.handleOnChange}
+            onKeyDown={this.handleEnter}
+        />
+            </>
+        );
+    }
 }
 
 class DlaRoot3 extends React.Component {
@@ -62,19 +120,16 @@ class DlaRoot3 extends React.Component {
             tagi: event.target.value
         })
     }
+    
     klikniete = (event) => {
-    var a={imie:"John", lastName:"Doe", age:50, eyeColor:"blue"};
-    	 this.setState({
-              toDoList: this.state.toDoList.concat("pp"),
-              showWarning: false
-          		});
-    ReactDOM.render(
-    <Glossary toDoList={this.state.toDoList}/>,
-    document.getElementById('root4'));
+    var newP = document.createElement('p');
+    	ReactDOM.render(
+    <Bye imie={this.state.imie} opis={this.state.opis} email={this.state.email} tagi={this.state.tagi}/>,
+    document.getElementById('root4').appendChild(newP)
+);
     }
     // it => ( )
     render() {
-
         return (
             //React.Fragment
             <>
@@ -123,12 +178,15 @@ class DlaRoot3 extends React.Component {
         	onClick={this.klikniete}>
         	Dodaj
         </button>
-        {this.state.showWarning && <h1 style={{color: "red"}}>{this.errorMessage}</h1> }
             </>
         );
     }
 }
 
+ReactDOM.render(
+    <DlaRoot1 dummyText="Szukanie" />,
+    document.getElementById('root1')
+);
 ReactDOM.render(
     <Hello />,
     document.getElementById('root2')
@@ -136,8 +194,4 @@ ReactDOM.render(
 ReactDOM.render(
     <DlaRoot3 dummyText="Dodawanie" />,
     document.getElementById('root3')
-);
-ReactDOM.render(
-    <Bye imie="a" opis="b" email="c" tagi="d"/>,
-    document.getElementById('root4')
 );
