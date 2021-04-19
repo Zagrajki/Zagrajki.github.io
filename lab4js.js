@@ -8,7 +8,7 @@ const Hello = () => (<h2>Liczba znalezionych: {found}</h2>)
 const Bye = (props) => (<>
 					<h1 style={{position: "static", top: "0px"}}>{props.imie}</h1>
                     <p style={{position: "static", top: "0px"}}>{props.opis}</p>
-                   	<p style={{position: "relative", top: "40px", left: "200px"}}><a href="mailto:"+{props.email} target="_blank">{props.email}</a></p>
+                   	<p style={{position: "relative", top: "40px", left: "200px"}}><a href={"mailto:"+props.email} target="_blank">{props.email}</a></p>
                     <p style={{position: "static", top: "0px"}}>{props.tagi}</p>
 					</>)
 
